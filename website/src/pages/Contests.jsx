@@ -1,14 +1,24 @@
 import React from 'react';
-import { Trophy } from 'lucide-react';
+import './Contests.css';
+import heroImageFallback from '../../../Research Papers/assets/contests.jpg';
 
 const Contests = () => {
   return (
     <div className="page-wrapper container" style={{ textAlign: 'center', paddingTop: '10rem' }}>
-      <Trophy size={64} style={{ color: 'var(--primary)', margin: '0 auto 2rem' }} />
-      <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Contest Solutions</h1>
-      <p style={{ color: 'var(--text-muted)', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto' }}>
-        Review detailed solutions, official editorials, and community approaches for past AI Olympiad problems. Elevate your problem-solving skills!
-      </p>
+      <div className="hero-image-container">
+        <img
+          src={heroImageFallback}
+          alt="Research Papers"
+          className="hero-image"
+          onError={(e) => {
+            e.target.src = "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1200&auto=format&fit=crop";
+          }}
+        />
+        <div className="hero-overlay">
+          <h1 className="hero-title">Olympiad/Contest Solutions</h1>
+          <p className="hero-subtitle">Every solution to international and national AI olympiad problems in one place</p>
+        </div>
+      </div>
     </div>
   );
 };
