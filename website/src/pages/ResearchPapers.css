@@ -15,7 +15,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.9s ease, filter 0.9s ease;
-  filter: blur(1px) brightness(0.9); /* subtle blur + slight darkening */
+  filter: blur(0.1px) brightness(0.9); /* subtle blur + slight darkening */
 }
 
 /* On hover: scale up and reduce blur for a “pop” effect */
