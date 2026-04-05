@@ -1,0 +1,108 @@
+/* ── Home page layout ────────────────────────────────── */
+
+.home-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 5rem;
+}
+
+.home-inner {
+  max-width: 680px;
+  /* stagger children via :nth-child */
+}
+
+/* ── Staggered entrance animations ──────────────────── */
+
+.home-wrapper .home-eyebrow,
+.home-wrapper .home-heading,
+.home-wrapper .home-sub,
+.home-wrapper .home-actions,
+.home-wrapper .home-stats {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.home-visible .home-eyebrow  { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.home-visible .home-heading  { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.home-visible .home-sub      { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.home-visible .home-actions  { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+.home-visible .home-stats    { opacity: 1; transform: translateY(0); transition-delay: 0.48s; }
+
+/* ── Content ─────────────────────────────────────────── */
+
+.home-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.home-heading {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.4rem;
+}
+
+.home-sub {
+  font-size: 1.05rem;
+  color: #64748b;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 560px;
+  font-weight: 400;
+}
+
+.home-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+/* ── Stats row ───────────────────────────────────────── */
+
+.home-stats {
+  display: flex;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #e9eef4;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .home-heading {
+    font-size: 2.2rem;
+  }
+
+  .home-stats {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}

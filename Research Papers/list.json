@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Attention Is All You Need",
+    "author": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin",
+    "category": "Transformers",
+    "summary": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. The model achieves superior quality on machine translation tasks while being significantly more parallelizable.",
+    "problem": "Handling long sequences in translation was too slow because models processed words one by one (RNNs/LSTMs), making it impossible to scale computation efficiently. Recurrent models also struggled to retain context over long ranges.",
+    "ELI5 problem": "Imagine trying to translate a sentence word by word — you'd lose the context. Old AI read texts from left to right like a slow reader. The Transformer lets AI look at every word in a sentence all at once, like reading a whole paragraph and instantly understanding the meaning.",
+    "link": "https://arxiv.org/abs/1706.03762"
+  },
+  {
+    "title": "Language Models are Few-Shot Learners",
+    "author": "Tom B. Brown et al.",
+    "category": "Large Language Models",
+    "summary": "We demonstrate that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches.",
+    "problem": "AI models required thousands of task-specific training examples to learn a new skill. This created massive bottlenecks for broad AI generalization and made deploying models to new tasks extremely expensive.",
+    "ELI5 problem": "Before this, AI needed thousands of examples to learn anything new. GPT-3 showed that if you train a big enough model on the internet, it can do new things from just a handful of examples or even a plain English description of the task.",
+    "link": "https://arxiv.org/abs/2005.14165"
+  },
+  {
+    "title": "Generative Adversarial Nets",
+    "author": "Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio",
+    "category": "Generative Models",
+    "summary": "We propose a framework for estimating generative models via an adversarial process, simultaneously training two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data.",
+    "problem": "It was historically extremely difficult for computers to generate high-fidelity data that statistically matched real distributions. Existing methods either required strong assumptions about the data or were computationally intractable.",
+    "ELI5 problem": "How do we teach computers to create realistic fakes? Set up a game: one AI tries to forge paintings, another plays the art detective. As they compete, the forger gets so good it can fool anyone — including us.",
+    "link": "https://arxiv.org/abs/1406.2661"
+  },
+  {
+    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+    "author": "Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, Björn Ommer",
+    "category": "Diffusion Models",
+    "summary": "By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models achieve state-of-the-art synthesis results on image data. We apply DMs in the latent space of powerful pretrained autoencoders.",
+    "problem": "Generating high-resolution images pixel-by-pixel consumed catastrophic compute. Denoising directly in pixel space was financially and computationally prohibitive, preventing practical use of diffusion models at scale.",
+    "ELI5 problem": "Stable Diffusion works by taking an image, adding noise (TV static) until it is completely scrambled, then teaching the AI to reverse the process. Instead of working with every pixel, it works in a compressed space — much faster and cheaper.",
+    "link": "https://arxiv.org/abs/2112.10752"
+  }
+]
