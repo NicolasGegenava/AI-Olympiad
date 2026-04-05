@@ -1,38 +1,479 @@
 [
-  {
-    "title": "Attention Is All You Need",
-    "author": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin",
-    "category": "Transformers",
-    "summary": "We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. The model achieves superior quality on machine translation tasks while being significantly more parallelizable.",
-    "problem": "Handling long sequences in translation was too slow because models processed words one by one (RNNs/LSTMs), making it impossible to scale computation efficiently. Recurrent models also struggled to retain context over long ranges.",
-    "ELI5 problem": "Imagine trying to translate a sentence word by word — you'd lose the context. Old AI read texts from left to right like a slow reader. The Transformer lets AI look at every word in a sentence all at once, like reading a whole paragraph and instantly understanding the meaning.",
-    "link": "https://arxiv.org/abs/1706.03762"
+{
+  "title": "Alpha-CLIP: A CLIP Model Focusing on Wherever You Want",
+  "author": "Zeyi Sun, Ye Fang, Teng Wu, Pan Zhang, Yuhang Zang, Shu Kong, Yuanjie Wang, Hui Chen, Ziwei Liu",
+  "category": "Vision-Language Models",
+  "summary": "We introduce Alpha-CLIP, a vision-language model that incorporates an alpha channel alongside RGB inputs to provide spatial awareness. This allows the model to focus on specific regions or objects defined by the alpha matte, enabling fine-grained, region-level visual understanding.",
+  "problem": "Standard CLIP models process entire images globally, making it difficult for them to focus on specific objects, regions, or fine-grained details without being distracted by background context.",
+  "ELI5 problem": "Normal CLIP looks at a whole photo and describes the overall scene. Alpha-CLIP adds a built-in spotlight (an alpha channel) so you can point to the exact part of the image you want it to focus on.",
+  "link": "https://arxiv.org/pdf/2312.03818"
+},
+{
+  "title": "How Does Batch Normalization Help Optimization?",
+  "author": "Shibani Santurkar, Dimitris Tsipras, Andrew Ilyas, Aleksander Madry",
+  "category": "Optimization / Deep Learning Theory",
+  "summary": "We demonstrate that the success of Batch Normalization has little to do with reducing internal covariate shift. Instead, we show that it smooths the objective landscape, significantly reducing the Lipschitz constants of the loss and gradients, which enables larger learning rates and faster convergence.",
+  "problem": "It was widely believed that Batch Normalization worked by keeping layer activations centered (reducing 'internal covariate shift'), but no one had rigorously proved this mechanism, leaving the actual reason for its success a mystery.",
+  "ELI5 problem": "People thought Batch Norm worked by keeping data flowing through the network neatly centered, like cars staying in their lanes. This paper proved that's wrong—it actually works by making the landscape of the math smoother, like paving over a bumpy road so the AI can drive faster.",
+  "link": "https://arxiv.org/pdf/1805.11604"
+},
+{
+  "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+  "author": "Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova",
+  "category": "Large Language Models",
+  "summary": "We introduce BERT, a language representation model designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks.",
+  "problem": "Previous language models processed text in only one direction (left-to-right), severely limiting their ability to understand the full context of a word based on the words that come after it.",
+  "ELI5 problem": "Imagine trying to guess a missing word in a sentence by only looking at the words before it. BERT looks at the words before *and* after the missing word at the exact same time, giving it a much deeper understanding of language.",
+  "link": "https://arxiv.org/pdf/1810.04805"
+},
+{
+  "title": "Learning Transferable Visual Models From Natural Language Supervision",
+  "author": "Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, et al.",
+  "category": "Vision-Language Models",
+  "summary": "We present CLIP, a neural network trained on a variety of image and text pairs. It can be instructed in natural language to predict the most relevant text snippet for a given image, enabling zero-shot transfer to multiple downstream computer vision tasks without any task-specific training data.",
+  "problem": "Traditional image recognition models required massive datasets of manually labeled images to learn specific categories. They were brittle and could not recognize anything outside their hard-coded training buckets.",
+  "ELI5 problem": "Instead of teaching an AI by showing it thousands of photos manually labeled 'dog', CLIP learns by reading the internet. It looks at images and their captions together, learning to connect visual concepts to words so well it can recognize almost anything.",
+  "link": "https://arxiv.org/pdf/2103.00020"
+},
+{
+  "title": "mixup: Beyond Empirical Risk Minimization",
+  "author": "Hongyi Zhang, Moustapha Cisse, Yann N. Dauphin, David Lopez-Paz",
+  "category": "Data Augmentation / Regularization",
+  "summary": "We propose mixup, a simple and data-agnostic data augmentation principle that trains a neural network on convex combinations of pairs of examples and their labels. This encourages the model to behave linearly in-between training examples, improving generalization and robustness.",
+  "problem": "Neural networks tend to memorize training data and become overly confident in their predictions, leading to poor generalization on unseen data and extreme vulnerability to adversarial examples.",
+  "ELI5 problem": "Instead of showing the AI a cat and a dog separately, MixUp blends a photo of a cat and a dog together (like 70% cat, 30% dog) and tells the AI to predict exactly that mix. This forces the AI to learn smoother, smarter boundaries between concepts.",
+  "link": "https://arxiv.org/pdf/1710.09412"
+},
+{
+  "title": "Self-training with Noisy Student improves ImageNet classification",
+  "author": "Qizhe Xie, Minh-Thang Luong, Eduard Hovy, Quoc V. Le",
+  "category": "Semi-Supervised Learning",
+  "summary": "We use a teacher-student framework to leverage a massive amount of unlabeled data. A teacher model generates pseudo-labels for unlabeled images, and a larger student model is trained on both labeled and pseudo-labeled data while being subjected to heavy noise (dropout, data augmentation) to force it to learn harder.",
+  "problem": "Labeled data is incredibly expensive to acquire, but there is a virtually unlimited amount of unlabeled image data available that standard supervised models couldn't utilize to improve their accuracy.",
+  "ELI5 problem": "A 'teacher' AI labels a bunch of unlabelled photos. A 'student' AI then tries to learn from these labels, but we make it harder by adding static and hiding parts of the images. The student gets so good it beats the teacher, becomes the new teacher, and the cycle repeats.",
+  "link": "https://arxiv.org/pdf/1911.04252"
+},
+{
+  "title": "FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence",
+  "author": "Kihyuk Sohn, David Berthelot, Nicholas Carlini, et al.",
+  "category": "Semi-Supervised Learning",
+  "summary": "We propose FixMatch, an algorithm that combines consistency regularization and pseudo-labeling. It generates pseudo-labels using the model's high-confidence predictions on weakly augmented unlabeled images, and then trains the model to predict those same labels when the images are strongly augmented.",
+  "problem": "Existing semi-supervised learning methods were highly complex, combining multiple disparate techniques and loss components, making them brittle, hard to implement, and difficult to tune.",
+  "ELI5 problem": "Show an AI a normal photo and ask what it is. If it's very confident it's a dog, heavily scramble and distort that exact same photo and force the AI to still predict 'dog'. It learns to be consistent even when the image is messy, using barely any labeled data.",
+  "link": "https://arxiv.org/pdf/2001.07685"
+},
+{
+  "title": "Class-Balanced Loss Based on Effective Number of Samples",
+  "author": "Yin Cui, Menglin Jia, Tsung-Yi Lin, Yang Song, Serge Belongie",
+  "category": "Loss Functions / Long-Tail Learning",
+  "summary": "We introduce a theoretical framework to measure data overlap by the 'effective number of samples' and use it to design a class-balanced loss that re-weights the standard loss to address the severe class imbalance problem in long-tailed datasets.",
+  "problem": "Real-world datasets are heavily skewed (long-tailed), meaning some classes have millions of examples while others have very few. Models end up heavily biased, just guessing the common classes and ignoring the rare ones.",
+  "ELI5 problem": "If an AI sees a million cats but only ten platypuses, it just guesses 'cat' for everything. This paper mathematically figures out that the 100th picture of a cat adds less new info than the 1st. It adjusts the learning penalty so rare animals get the exact right amount of attention.",
+  "link": "https://arxiv.org/pdf/1901.05555"
+},
+{
+  "title": "Test-Time Training with Self-Supervision for Generalization under Distribution Shifts",
+  "author": "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei A. Efros, Moritz Hardt",
+  "category": "Robustness / Domain Adaptation",
+  "summary": "We propose Test-Time Training, a method that turns a single unlabeled test sample into a self-supervised learning problem to update the model parameters right before making a prediction, adapting the network to distribution shifts on the fly.",
+  "problem": "Models fail when deployed in environments slightly different from their training data (e.g., trained on sunny days, tested on rainy days) because their weights are completely frozen after training.",
+  "ELI5 problem": "Usually, an AI stops learning once it leaves the lab. This method lets the AI do a quick 'warm-up' exercise (like rotating an image and guessing the angle) right before making a prediction on a new piece of data, adjusting itself to new environments instantly.",
+  "link": "https://arxiv.org/pdf/1909.13231"
+},
+{
+  "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+  "author": "Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, et al.",
+  "category": "Vision Transformers",
+  "summary": "We show that the reliance on CNNs is not necessary and a pure transformer applied directly to sequences of image patches can perform very well on image classification tasks, especially when pre-trained on large amounts of data.",
+  "problem": "Computer vision relied almost entirely on Convolutional Neural Networks (CNNs) which have baked-in local biases and struggle to capture long-range global dependencies across an image efficiently compared to NLP models.",
+  "ELI5 problem": "Instead of scanning an image pixel by pixel using standard computer vision grids, this model chops the image into little squares, lines them up like words in a sentence, and uses a text-reading AI to understand the whole picture.",
+  "link": "https://arxiv.org/pdf/2010.11929"
+},
+{
+  "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+  "author": "Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, Baining Guo",
+  "category": "Vision Transformers",
+  "summary": "We present a hierarchical Transformer whose representation is computed with Shifted Windows. The shifted windowing scheme brings greater efficiency by limiting self-attention computation to non-overlapping local windows while also allowing for cross-window connection.",
+  "problem": "Standard Vision Transformers scale quadratically with image resolution, making them astronomically expensive and unscalable for high-resolution tasks like object detection or pixel-level segmentation.",
+  "ELI5 problem": "Standard Transformers try to look at every part of an image at once, which melts the computer's brain on big images. Swin looks at small local windows, and then slightly shifts those windows in the next step to connect the pieces together, making it incredibly fast.",
+  "link": "https://arxiv.org/pdf/2103.14030"
+},
+{
+  "title": "Matryoshka Representation Learning",
+  "author": "Aditya Kusupati, Gantavya Bhatt, Aniket Rege, et al.",
+  "category": "Representation Learning",
+  "summary": "We propose Matryoshka Representation Learning (MRL) which encodes information at multiple granularities within a single high-dimensional vector. This allows the representation to be flexibly truncated to smaller dimensions at deployment time without significant loss of performance.",
+  "problem": "Embeddings (vector representations of data) are fixed in size. Deploying them across different devices (like cloud servers vs mobile phones) requires training and maintaining multiple completely separate models with different embedding dimensions.",
+  "ELI5 problem": "Like Russian nesting dolls, this trains an AI to create a long string of numbers where the most important info is packed into the very first few numbers. If your phone is slow, it only reads the first few numbers; if you're on a supercomputer, it reads the whole string.",
+  "link": "https://arxiv.org/pdf/2205.13147"
+},
+{
+  "title": "Masked Autoencoders Are Scalable Vision Learners",
+  "author": "Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollár, Ross Girshick",
+  "category": "Self-Supervised Learning",
+  "summary": "We develop an asymmetric autoencoder architecture that masks random patches of an input image and reconstructs the missing pixels. By masking a very high proportion of the image (e.g., 75%), we yield a meaningful and scalable self-supervisory task.",
+  "problem": "Self-supervised learning in vision lagged behind NLP because pixels don't contain concentrated, high-level semantic meaning like words do, making it hard to train models by simply hiding parts of an image.",
+  "ELI5 problem": "We take a photo, delete 75% of it, and ask the AI to draw in the missing pieces. By forcing the AI to reconstruct the image from tiny scraps, it develops a deep, fundamental understanding of what objects actually look like.",
+  "link": "https://arxiv.org/pdf/2111.06377"
+},
+{
+  "title": "Emerging Properties in Self-Supervised Vision Transformers",
+  "author": "Mathilde Caron, Hugo Touvron, Ishan Misra, Hervé Jégou, Julien Mairal, Piotr Bojanowski, Armand Joulin",
+  "category": "Self-Supervised Learning",
+  "summary": "We propose DINO, a form of self-supervised training for Vision Transformers where a student network is trained to match the output of a momentum teacher network. The resulting features contain explicit information about the semantic segmentation of an image without any supervision.",
+  "problem": "Vision models required manual annotations for tasks like object segmentation, and self-supervised models rarely learned to separate discrete objects from backgrounds organically.",
+  "ELI5 problem": "A 'student' AI tries to mimic a 'teacher' AI's output on a distorted image. Without any human telling it what an object is, the AI naturally learns to perfectly highlight the main object in a video or picture—just by learning to be consistent.",
+  "link": "https://arxiv.org/pdf/2104.14294"
+},
+{
+  "title": "Bag of Tricks for Image Classification with Convolutional Neural Networks",
+  "author": "Tong He, Zhi Zhang, Hang Zhang, Zhongyue Zhang, Junyuan Xie, Mu Li",
+  "category": "Computer Vision / Training Techniques",
+  "summary": "We examine a collection of training refinements and heuristic 'tricks' such as learning rate warmup, mixup training, and label smoothing. We empirically evaluate their impact and show that simply combining these tricks can significantly boost accuracy across multiple models.",
+  "problem": "Many improvements in image classification were falsely credited to complex, novel network architectures, ignoring the massive impact of minor tweaks in training procedures, data augmentation, and hyperparameters.",
+  "ELI5 problem": "Sometimes the recipe is more important than the oven. This paper showed that you don't always need a fancy new AI model; just using clever, simple training tricks (like warming up the learning rate or mixing images together) can make an old model beat a new one.",
+  "link": "https://arxiv.org/pdf/1812.01187"
+},
+{
+  "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+  "author": "Olaf Ronneberger, Philipp Fischer, Thomas Brox",
+  "category": "Image Segmentation",
+  "summary": "We present U-Net, an architecture consisting of a contracting path to capture context and a symmetric expanding path that enables precise localization. The network can be trained end-to-end from very few images.",
+  "problem": "Medical image segmentation required massive datasets to train, but doctors only had a few annotated scans available. Furthermore, models needed to provide precise, pixel-level localization rather than just general image classification.",
+  "ELI5 problem": "Imagine shrinking a picture down to understand what it is, but then you lose all the fine details. U-Net shrinks the picture to understand the 'what', but then builds it back up while using 'shortcuts' from the original image to perfectly trace the 'where'.",
+  "link": "https://arxiv.org/pdf/1505.04597"
+},
+{
+  "title": "Rethinking Atrous Convolution for Semantic Image Segmentation",
+  "author": "Liang-Chieh Chen, George Papandreou, Florian Schroff, Hartwig Adam",
+  "category": "Image Segmentation",
+  "summary": "We address the challenge of semantic segmentation by employing atrous convolution in cascade or in parallel to capture multi-scale context. Our proposed DeepLabv3 system significantly improves over previous versions without needing a dense conditional random field.",
+  "problem": "Standard pooling layers in CNNs reduced spatial resolution, causing segmentations to lose sharp edges and fine details, while standard convolutions couldn't capture a wide enough field of view to understand big objects.",
+  "ELI5 problem": "Normal AI looks at a picture through a small, tight magnifying glass. If you make the glass bigger, it gets too slow. 'Atrous' convolution is like a magnifying glass with holes in it—it can see a wide area to understand the big picture without needing extra computing power.",
+  "link": "https://arxiv.org/pdf/1706.05587"
+},
+{
+  "title": "End-to-End Object Detection with Transformers",
+  "author": "Nicolas Carion, Francisco Massa, Gabriel Synnaeve, Nicolas Usunier, Alexander Kirillov, Sergey Zagoruyko",
+  "category": "Object Detection",
+  "summary": "We present DETR, which views object detection as a direct set prediction problem. The approach streamlines the detection pipeline, effectively removing the need for many hand-designed components like non-maximum suppression procedures or anchor generation.",
+  "problem": "Object detection pipelines were incredibly messy, relying on hand-engineered components like anchor boxes and non-maximum suppression to manually filter out duplicate bounding boxes.",
+  "ELI5 problem": "Old object detectors would guess 10,000 different boxes for a single cat and then use messy code to delete the duplicates. DETR uses a Transformer to just look at the image and confidently draw exactly one box per object, cutting out all the messy middleman steps.",
+  "link": "https://arxiv.org/pdf/2005.12872"
+},
+{
+  "title": "Segment Anything",
+  "author": "Alexander Kirillov, Eric Mintun, Nikhila Ravi, et al.",
+  "category": "Image Segmentation",
+  "summary": "We introduce the Segment Anything Model (SAM), a promptable foundation model for image segmentation. Trained on a massive dataset of 1 billion masks, SAM can generalize zero-shot to unfamiliar objects and images based on point, box, or text prompts.",
+  "problem": "Segmentation models were highly specialized to specific domains (e.g., medical vs autonomous driving). There was no 'foundation model' for computer vision that could easily segment any object from a simple prompt.",
+  "ELI5 problem": "Before, you needed one AI to trace cars and a completely different AI to trace cells. SAM is a universal tracing tool—you just click on *anything* in a photo, or draw a box around it, and it instantly cuts it out perfectly, no matter what it is.",
+  "link": "https://arxiv.org/pdf/2304.02643"
+},
+{
+  "title": "Masked-attention Mask Transformer for Universal Image Segmentation (Mask2Former)",
+  "author": "Bowen Cheng, Ishan Misra, Alexander G. Schwing, Alexander Kirillov, Rohit Girdhar",
+  "category": "Image Segmentation",
+  "summary": "We propose Mask2Former, a unified architecture capable of addressing any image segmentation task (panoptic, instance, or semantic). Its key component is masked attention, which extracts localized features by constraining cross-attention within predicted mask regions.",
+  "problem": "Historically, AI categorized every single pixel individually, which struggled to separate instances of the same object (like two overlapping cars) and required completely different architectures for semantic versus instance segmentation.",
+  "ELI5 problem": "Instead of coloring an image pixel-by-pixel like a pointillism painting, Mask2Former predicts a set of 'masks' (like paper cut-outs) and then decides what each mask represents. It unifies all the different types of image tracing into one simple, powerful system.",
+  "link": "https://arxiv.org/pdf/2112.01527"
+},
+{
+  "title": "Denoising Diffusion Probabilistic Models",
+  "author": "Jonathan Ho, Ajay Jain, Pieter Abbeel",
+  "category": "Generative Models / Diffusion",
+  "summary": "We present high quality image synthesis results using diffusion probabilistic models, a class of latent variable models inspired by nonequilibrium thermodynamics. We show an equivalence between diffusion models and denoising score matching with Langevin dynamics.",
+  "problem": "Generating high-quality, diverse images was dominated by GANs (Generative Adversarial Networks), which were notoriously unstable to train, prone to mode collapse, and hard to scale.",
+  "ELI5 problem": "It teaches AI to create art by destroying it first. It takes a photo, slowly adds static (noise) until it's just TV fuzz, and then trains the AI to perfectly reverse that process. To make new art, you just give it pure fuzz and ask it to 'fix' it.",
+  "link": "https://arxiv.org/pdf/2006.11239"
+},
+{
+  "title": "Denoising Diffusion Implicit Models",
+  "author": "Jiaming Song, Chenlin Meng, Stefano Ermon",
+  "category": "Generative Models / Diffusion",
+  "summary": "We propose DDIMs, a class of non-Markovian diffusion models that share the same training objective as DDPMs but utilize a deterministic generative process. This allows for significantly fewer sampling steps, enabling much faster image generation.",
+  "problem": "Traditional diffusion models (DDPMs) required hundreds or thousands of sequential steps to generate a single image, making inference incredibly slow and computationally expensive for practical use.",
+  "ELI5 problem": "Standard diffusion takes 1,000 tiny, slow steps to turn TV static into a picture. DDIM figures out a mathematical shortcut to skip most of those steps, allowing the AI to generate the exact same high-quality images 10 to 50 times faster.",
+  "link": "https://arxiv.org/pdf/2010.02502"
+},
+{
+  "title": "Classifier-Free Diffusion Guidance",
+  "author": "Jonathan Ho, Tim Salimans",
+  "category": "Generative Models / Diffusion",
+  "summary": "We introduce classifier-free guidance, a method to guide diffusion models without an explicit classifier. We train a conditional and an unconditional model together, and extrapolate in the direction of the conditional prediction during sampling to strongly enforce the condition.",
+  "problem": "Guiding diffusion models to generate specific text prompts previously required training a separate, noisy image classifier to pull the image in the right direction, which was complex to build and often degraded image quality.",
+  "ELI5 problem": "To make an AI draw exactly what you type, old methods used a second 'critic' AI to yell at the artist. This paper realized you can just have the artist draw the picture *with* your prompt and *without* your prompt, compare the two, and exaggerate the difference.",
+  "link": "https://arxiv.org/pdf/2207.12598"
+},
+{
+  "title": "Adding Conditional Control to Text-to-Image Diffusion Models",
+  "author": "Lvmin Zhang, Anyi Rao, Maneesh Agrawala",
+  "category": "Generative Models / ControlNet",
+  "summary": "We present ControlNet, a neural network architecture to add spatial conditioning controls to large, pretrained text-to-image diffusion models. It locks the original model parameters and creates a trainable copy to learn specific task conditions like edges, poses, or depth.",
+  "problem": "Text-to-image models couldn't preserve specific spatial compositions or poses. Prompting 'a man dancing' couldn't guarantee the exact posture, layout, or perspective you wanted.",
+  "ELI5 problem": "Text prompts are too vague—if you say 'draw a house', you can't control where the windows go. ControlNet lets you give the AI an edge sketch, a pose skeleton, or a depth map alongside the text, acting like strict coloring book lines for the AI to fill in.",
+  "link": "https://arxiv.org/pdf/2302.05543"
+},
+{
+  "title": "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators",
+  "author": "Kevin Clark, Minh-Thang Luong, Quoc V. Le, Christopher D. Manning",
+  "category": "Large Language Models",
+  "summary": "We propose replaced token detection, a pre-training task where the model learns to distinguish real input tokens from plausible replacements generated by a small masked language model. This approach is significantly more compute-efficient than BERT's masked language modeling.",
+  "problem": "BERT-style masked language modeling only trained on the 15% of words that were masked out, wasting massive amounts of compute because the model didn't learn anything from the other 85% of the text.",
+  "ELI5 problem": "Instead of blanking out a word and asking the AI to guess it, ELECTRA uses a smaller AI to swap words with plausible fakes. The main AI then acts like a detective, checking *every single word* in the sentence to spot the imposters, learning much faster.",
+  "link": "https://arxiv.org/pdf/2003.10555"
+},
+{
+  "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+  "author": "Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen",
+  "category": "Efficient Fine-Tuning",
+  "summary": "We propose Low-Rank Adaptation (LoRA), which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, vastly reducing the number of trainable parameters for downstream tasks.",
+  "problem": "Fine-tuning large language models required updating billions of parameters, demanding catastrophic amounts of GPU memory and storage to save a separate model copy for every specific task.",
+  "ELI5 problem": "Imagine a massive textbook that you want to update. Instead of reprinting the entire book (which is expensive), LoRA just slides a small, transparent sticky note over the pages with the edits. It achieves the exact same results but is 10,000 times smaller and cheaper.",
+  "link": "https://arxiv.org/pdf/2106.09685"
+},
+{
+  "title": "SimCSE: Simple Contrastive Learning of Sentence Embeddings",
+  "author": "Tianyu Gao, Xingcheng Yao, Danqi Chen",
+  "category": "NLP / Embeddings",
+  "summary": "We present SimCSE, a simple contrastive learning framework that greatly advances state-of-the-art sentence embeddings. In our unsupervised approach, we simply predict the input sentence itself using standard dropout as noise to create positive pairs.",
+  "problem": "Sentence embeddings often suffered from anisotropy (collapsing into a narrow cone in the vector space), making it hard to compute meaningful semantic similarities between sentences without extensive, expensive labeled data.",
+  "ELI5 problem": "How do you teach AI which sentences mean the same thing without human labels? SimCSE takes a sentence, feeds it to the AI twice with slight random internal brain-fuzz (dropout), and tells the AI 'these two outputs should be identical, and different from everything else.'",
+  "link": "https://arxiv.org/pdf/2104.08821"
+},
+{
+  "title": "DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter",
+  "author": "Victor Sanh, Lysandre Debut, Julien Chaumond, Thomas Wolf",
+  "category": "Efficient Deep Learning",
+  "summary": "We demonstrate that it is possible to reduce the size of a BERT model by 40%, while retaining 97% of its language understanding capabilities and being 60% faster. We use knowledge distillation during the pre-training phase.",
+  "problem": "Massive language models like BERT were too heavy, slow, and expensive to be deployed on edge devices (like smartphones) or in low-latency production environments.",
+  "ELI5 problem": "We take the massive, heavy BERT model (the teacher) and force a much smaller model (the student) to mimic not just its final answers, but its exact thought process. The resulting mini-BERT is much faster and smaller, but keeps almost all the smarts.",
+  "link": "https://arxiv.org/pdf/1910.01108"
+},
+{
+  "title": "Sigmoid Loss for Language Image Pre-Training",
+  "author": "Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, Lucas Beyer",
+  "category": "Vision-Language Models",
+  "summary": "We propose replacing the standard softmax contrastive loss in language-image pre-training with a simple pairwise sigmoid loss. This eliminates the need for a global view of all negative pairs in a batch, drastically reducing memory usage and scaling efficiently.",
+  "problem": "Standard contrastive learning (like CLIP) requires a global view of all negative pairs across massive batch sizes, bottlenecking multi-node distributed training and wasting massive amounts of TPU/GPU memory.",
+  "ELI5 problem": "Old models learned by looking at a photo and finding its exact caption out of 30,000 options at the exact same time, which requires a massive supercomputer. SigLIP simplifies this to a simple 'Yes/No: Does this text match this photo?', saving tons of memory.",
+  "link": "https://arxiv.org/pdf/2303.15343"
+},
+{
+  "title": "Why Do We Need Weight Decay in Modern Deep Learning?",
+  "author": "Francesco D'Angelo, Maksym Andriushchenko, Aditya Varre, Nicolas Flammarion",
+  "category": "Optimization / Deep Learning Theory",
+  "summary": "We investigate the mechanisms of weight decay in modern deep learning regimes. We show that instead of acting as an explicit regularizer, weight decay alters training dynamics by stabilizing the loss, preventing gradients from vanishing and enabling the implicit regularization of SGD to take effect.",
+  "problem": "Weight decay is universally used, but classical learning theory's explanation (that it acts purely to restrict capacity as an explicit regularizer) fails to explain its critical behavior and success in modern large-scale neural network training.",
+  "ELI5 problem": "We used to think weight decay kept neural networks from memorizing data by punishing big numbers. This paper shows it actually works by changing the bumpy math landscape during training—stabilizing the loss so the network can safely take bigger steps and learn better.",
+  "link": "https://arxiv.org/pdf/2310.04415"
+},
+{
+  "title": "Harnessing the Universal Geometry of Embeddings",
+  "author": "Rishi Jha, Collin Zhang, Vitaly Shmatikov, John X. Morris",
+  "category": "Representation Learning / NLP",
+  "summary": "We introduce vec2vec, an unsupervised method for translating text embeddings from one vector space to another without paired data or predefined matches, leveraging the universal latent structure conjectured by the Platonic Representation Hypothesis.",
+  "problem": "Different embedding models map text into completely incompatible, unaligned vector spaces. This makes it impossible to switch models or analyze databases generated by unknown encoders without access to the original text or massive paired datasets.",
+  "ELI5 problem": "If two different AIs read a book, they write down their summaries in two completely different alien languages. This paper created a universal translator that can translate one alien language into the other perfectly, without ever seeing a dictionary.",
+  "link": "https://arxiv.org/pdf/2505.12540"
+},
+{
+  "title": "Navigating the Latent Space Dynamics of Neural Models",
+  "author": "Various Authors",
+  "category": "Deep Learning Theory",
+  "summary": "We introduce a novel analytical framework for exploring how data representations evolve dynamically within the hidden layers of deep neural networks during training, revealing how the topological properties of latent spaces correlate with downstream robustness and generalization.",
+  "problem": "The intermediate, layer-by-layer representations within deep neural networks remain mostly opaque. It was previously very difficult to trace how individual concepts map and evolve across hidden layers during optimization, limiting interpretability.",
+  "ELI5 problem": "Trying to understand how an AI learns is like watching a cake bake in an oven without a window. This paper builds a mathematical window so we can see exactly how the AI mixes the ingredients inside its hidden layers before giving an answer.",
+  "link": "https://arxiv.org/pdf/2505.22785"
+},
+{
+    "title": "Interpreting ResNet-based CLIP via Neuron-Attention Decomposition",
+    "author": "Various Authors",
+    "category": "Vision-Language Models / Interpretability",
+    "summary": "We propose a method to interpret the ResNet backbone of CLIP by decomposing the network's neuron attention. This allows us to trace and understand exactly how intermediate layers map visual features to linguistic concepts.",
+    "problem": "Standard ResNet-based CLIP models operate as black boxes, making it difficult to understand exactly how intermediate layers map specific visual features to corresponding words or linguistic concepts.",
+    "ELI5 problem": "We know CLIP works, but we don't know *how* it thinks. This paper acts like an X-ray for the AI's brain, letting us see exactly which 'neurons' light up when it recognizes specific words like 'dog' or 'car'.",
+    "link": "https://arxiv.org/search/?query=Interpreting+ResNet-based+CLIP+via+Neuron-Attention+Decomposition&searchtype=title"
   },
   {
-    "title": "Language Models are Few-Shot Learners",
-    "author": "Tom B. Brown et al.",
-    "category": "Large Language Models",
-    "summary": "We demonstrate that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches.",
-    "problem": "AI models required thousands of task-specific training examples to learn a new skill. This created massive bottlenecks for broad AI generalization and made deploying models to new tasks extremely expensive.",
-    "ELI5 problem": "Before this, AI needed thousands of examples to learn anything new. GPT-3 showed that if you train a big enough model on the internet, it can do new things from just a handful of examples or even a plain English description of the task.",
-    "link": "https://arxiv.org/abs/2005.14165"
+    "title": "CLIP for All Things Zero-Shot Sketch-Based Image Retrieval, Fine-Grained or Not",
+    "author": "Aneeshan Sain, Ayan Kumar Bhunia, et al.",
+    "category": "Vision-Language Models / Sketch Retrieval",
+    "summary": "We investigate the zero-shot sketch-based image retrieval capabilities of CLIP. We show that without any sketch-specific training, CLIP can successfully associate highly abstract, fine-grained human sketches with natural images.",
+    "problem": "Sketch-based image retrieval typically required models specifically trained on expensive, paired sketch-photo datasets, and they struggled to generalize to unseen categories or interpret abstract human doodles.",
+    "ELI5 problem": "Normally, you have to train AI specifically to match doodles to real photos. This paper found that CLIP is already so smart that if you just give it a rough sketch, it can perfectly find the matching photo without any extra drawing lessons.",
+    "link": "https://arxiv.org/search/?query=CLIP+for+All+Things+Zero-Shot+Sketch-Based+Image+Retrieval&searchtype=title"
   },
   {
-    "title": "Generative Adversarial Nets",
-    "author": "Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio",
-    "category": "Generative Models",
-    "summary": "We propose a framework for estimating generative models via an adversarial process, simultaneously training two models: a generative model G that captures the data distribution, and a discriminative model D that estimates the probability that a sample came from the training data.",
-    "problem": "It was historically extremely difficult for computers to generate high-fidelity data that statistically matched real distributions. Existing methods either required strong assumptions about the data or were computationally intractable.",
-    "ELI5 problem": "How do we teach computers to create realistic fakes? Set up a game: one AI tries to forge paintings, another plays the art detective. As they compete, the forger gets so good it can fool anyone — including us.",
-    "link": "https://arxiv.org/abs/1406.2661"
+    "title": "Know “No” Better: A Data-Driven Approach for Enhancing Negation Awareness in CLIP",
+    "author": "Various Authors",
+    "category": "Vision-Language Models / Robustness",
+    "summary": "We introduce a data-driven approach to improve CLIP's understanding of negation. By constructing a dataset of negative prompts and contrastively training the model to distinguish them, we significantly enhance its compositional awareness.",
+    "problem": "CLIP functions primarily as a bag-of-words model and consistently ignores negations (e.g., 'no', 'without'). It often erroneously assigns high similarity scores to images containing objects that the prompt specifically states should be absent.",
+    "ELI5 problem": "If you tell CLIP 'show me a room with NO dogs,' it just hears the word 'dogs' and shows you a dog anyway. This paper teaches CLIP to actually understand the word 'no' so it knows what to exclude.",
+    "link": "https://arxiv.org/search/?query=Know+No+Better+Enhancing+Negation+Awareness+in+CLIP&searchtype=title"
   },
   {
-    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
-    "author": "Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, Björn Ommer",
-    "category": "Diffusion Models",
-    "summary": "By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models achieve state-of-the-art synthesis results on image data. We apply DMs in the latent space of powerful pretrained autoencoders.",
-    "problem": "Generating high-resolution images pixel-by-pixel consumed catastrophic compute. Denoising directly in pixel space was financially and computationally prohibitive, preventing practical use of diffusion models at scale.",
-    "ELI5 problem": "Stable Diffusion works by taking an image, adding noise (TV static) until it is completely scrambled, then teaching the AI to reverse the process. Instead of working with every pixel, it works in a compressed space — much faster and cheaper.",
-    "link": "https://arxiv.org/abs/2112.10752"
+    "title": "Partial CLIP is Enough: Chimera-Seg for Zero-shot Semantic Segmentation",
+    "author": "Various Authors",
+    "category": "Image Segmentation",
+    "summary": "We propose Chimera-Seg, a framework that leverages only a partial CLIP model to perform zero-shot semantic segmentation, eliminating the need for full model fine-tuning while retaining robust alignment capabilities.",
+    "problem": "Adapting the entire massive CLIP model for dense prediction tasks like zero-shot segmentation is computationally heavy and often causes catastrophic forgetting of the original pre-trained text-image alignment.",
+    "ELI5 problem": "To teach CLIP to outline objects instead of just naming them, people used to try rewiring its whole brain, which was slow and messy. This paper shows you only need to borrow a tiny piece of CLIP's brain to get perfect cut-outs.",
+    "link": "https://arxiv.org/search/?query=Partial+CLIP+is+Enough+Chimera-Seg&searchtype=title"
+  },
+  {
+    "title": "Implicit Inversion turns CLIP into a Decoder",
+    "author": "Various Authors",
+    "category": "Generative Models / Inversion",
+    "summary": "We demonstrate that the CLIP encoder can be implicitly inverted to function as a decoder. Through optimization techniques in the latent space, we can reconstruct images and text directly from their CLIP embeddings without training a separate generative model.",
+    "problem": "CLIP is exclusively an encoder; it maps inputs to embeddings but lacks a mechanism to natively decode those embeddings back into visual or textual data without the costly training of a separate, auxiliary decoder network.",
+    "ELI5 problem": "CLIP is normally a one-way street: it turns pictures into math numbers. This paper figures out a clever mathematical trick to drive backward, turning those numbers back into pictures or words without needing to build a second AI.",
+    "link": "https://arxiv.org/search/?query=Implicit+Inversion+turns+CLIP+into+a+Decoder&searchtype=title"
+  },
+  {
+    "title": "MSCI: Addressing CLIP’s Inherent Limitations for Compositional Zero-Shot Learning",
+    "author": "Various Authors",
+    "category": "Compositional Zero-Shot Learning",
+    "summary": "We present a framework to address CLIP's limitations in Compositional Zero-Shot Learning (CZSL). By explicitly modeling the relationships between states and objects, we prevent the model from treating sentences as unstructured bags of words.",
+    "problem": "CLIP struggles with compositionality, often failing to distinguish between combinations of known attributes and objects (e.g., it easily confuses a 'red shirt and blue car' with a 'blue shirt and red car').",
+    "ELI5 problem": "CLIP knows what 'red' is and what a 'car' is, but if you mix up the grammar, it gets confused. This paper helps CLIP understand syntax and combinations, so it perfectly knows the difference between a 'red car' and a 'car painted red'.",
+    "link": "https://arxiv.org/search/?query=Addressing+CLIPs+Inherent+Limitations+for+Compositional+Zero-Shot+Learning&searchtype=title"
+  },
+  {
+    "title": "SPECIAL: Zero-shot Hyperspectral Image Classification With CLIP",
+    "author": "Various Authors",
+    "category": "Remote Sensing / Vision-Language Models",
+    "summary": "We propose SPECIAL, a method to adapt CLIP for hyperspectral image classification. By bridging the modality gap between RGB and multi-band spectra, we enable zero-shot remote sensing classification using natural language.",
+    "problem": "Hyperspectral images possess hundreds of spectral bands, entirely unlike the standard 3-channel RGB images CLIP was trained on. This domain gap previously made it impossible to apply vision-language foundation models directly to remote sensing.",
+    "ELI5 problem": "CLIP only knows regular camera photos. Hyperspectral images are taken by satellites and see invisible light (like infrared). This paper builds a translator so CLIP can look at satellite data and instantly identify things on the ground.",
+    "link": "https://arxiv.org/search/?query=Zero-shot+Hyperspectral+Image+Classification+With+CLIP&searchtype=title"
+  },
+  {
+    "title": "Zero-Shot Class Unlearning in CLIP with Synthetic Samples",
+    "author": "Various Authors",
+    "category": "Machine Unlearning",
+    "summary": "We introduce a method for zero-shot class unlearning in CLIP using synthesized samples. By optimizing against synthetic representations of the target class, the model forgets specific concepts while preserving its generalization on other tasks.",
+    "problem": "Foundation models inadvertently memorize sensitive, copyrighted, or harmful concepts. Removing these concepts is prohibitively expensive, as it traditionally requires retraining the entire model from scratch on meticulously filtered data.",
+    "ELI5 problem": "How do you make an AI 'forget' something dangerous it learned, without deleting its whole memory? This paper uses fake, generated images to overwrite the AI's memory of specific bad concepts, safely deleting them forever.",
+    "link": "https://arxiv.org/search/?query=Zero-Shot+Class+Unlearning+in+CLIP+with+Synthetic+Samples&searchtype=title"
+  },
+  {
+    "title": "Decomposing and Interpreting Image Representations via Text in ViTs Beyond CLIP",
+    "author": "Various Authors",
+    "category": "Interpretability",
+    "summary": "We propose a framework to interpret the opaque visual representations of standard Vision Transformers by projecting them into a text-aligned latent space, allowing us to explicitly read out the semantic concepts the model is focusing on.",
+    "problem": "Standard Vision Transformers produce high-dimensional, abstract visual embeddings that are entirely opaque to human understanding, lacking the explicit semantic text grounding found in contrastive vision-language models.",
+    "ELI5 problem": "An AI sees pictures as giant lists of random numbers, making its thought process a complete mystery. This paper figures out a way to translate those random numbers into plain English words, letting us read the AI's mind.",
+    "link": "https://arxiv.org/search/?query=Decomposing+and+Interpreting+Image+Representations+via+Text+in+ViTs&searchtype=title"
+  },
+  {
+    "title": "Can CLIP Count Stars? An Empirical Study on Quantity Bias in CLIP",
+    "author": "Various Authors",
+    "category": "Vision-Language Models / Benchmarking",
+    "summary": "We systematically evaluate CLIP's numerosity capabilities and identify a severe quantity bias. We find that the contrastive loss function incentivizes the model to ignore quantity tokens in favor of dominant object tokens.",
+    "problem": "Despite its semantic prowess, CLIP consistently fails at basic numerosity and counting tasks, hallucinating quantities due to a strong bag-of-words bias inherent in its contrastive training objective.",
+    "ELI5 problem": "CLIP is terrible at counting. If you ask it for 'five apples,' it just sees the word 'apples' and might show you two or ten. This paper studies exactly why the AI skips math class and how its training makes it ignore numbers.",
+    "link": "https://arxiv.org/search/?query=Can+CLIP+Count+Stars+Quantity+Bias+in+CLIP&searchtype=title"
+  },
+  {
+    "title": "The Curious Case of End Token: A Zero-Shot Disentangled Image Editing using CLIP",
+    "author": "Various Authors",
+    "category": "Image Editing",
+    "summary": "We present a method for disentangled image editing by manipulating the End of Text (EOT) token in CLIP. We demonstrate that the EOT token implicitly encodes structural priors, which can be leveraged to isolate specific attribute edits.",
+    "problem": "In text-guided image editing, modifying one attribute (like color) often unintentionally alters completely unrelated features (like shape or identity) because concepts are heavily entangled in the model's embedding space.",
+    "ELI5 problem": "When you ask an AI to turn a car red, it might accidentally turn the car into a completely different shape. This paper found a hidden trick using the 'period' at the end of a sentence to keep the car exactly the same while only changing its color.",
+    "link": "https://arxiv.org/search/?query=The+Curious+Case+of+End+Token+A+Zero-Shot+Disentangled+Image+Editing&searchtype=title"
+  },
+  {
+    "title": "Long-CLIP: Unlocking the Long-Text Capability of CLIP",
+    "author": "Various Authors",
+    "category": "Vision-Language Models",
+    "summary": "We introduce Long-CLIP, an architecture and training paradigm designed to extend CLIP's context window. By modifying the positional embeddings and training on long-form captions, we enable the model to capture dense, paragraph-level semantics.",
+    "problem": "Standard CLIP models have a hardcoded 77-token limit, preventing them from comprehending long, detailed paragraphs or processing dense captions required for complex image retrieval tasks.",
+    "ELI5 problem": "Standard CLIP has the attention span of a goldfish—it can only read a short sentence before it forgets the rest. Long-CLIP stretches the AI's brain so it can read entire paragraphs of text to perfectly match highly detailed descriptions to images.",
+    "link": "https://arxiv.org/search/?query=Long-CLIP+Unlocking+the+Long-Text+Capability+of+CLIP&searchtype=title"
+  },
+  {
+    "title": "LoTLIP: Improving Language-Image Pre-training for Long Text Understanding",
+    "author": "Various Authors",
+    "category": "Vision-Language Models",
+    "summary": "We present LoTLIP, a pre-training strategy tailored for long text alignment. By constructing synthetic long-text datasets and utilizing a hierarchical contrastive loss, we drastically improve the model's multi-sentence comprehension.",
+    "problem": "Language-image pre-training datasets mostly consist of short, noisy alt-texts. Simply extending the token limit isn't enough; training a model to align rich, long-form text with images requires new objective formulations.",
+    "ELI5 problem": "You can't teach someone to read a whole book by only giving them short flashcards. This paper improves how the AI is trained so it learns to connect entire stories and long descriptions directly to what's happening in a photo.",
+    "link": "https://arxiv.org/search/?query=LoTLIP+Improving+Language-Image+Pre-training+for+Long+Text+Understanding&searchtype=title"
+  },
+  {
+    "title": "FineLIP: Extending CLIP’s Reach via Fine-Grained Alignment with Longer Text Inputs",
+    "author": "Various Authors",
+    "category": "Vision-Language Models",
+    "summary": "We propose FineLIP, a model that enhances CLIP via fine-grained, patch-to-word alignment over extended sequences. It resolves the semantic dilution problem that occurs when compressing long texts into a single global vector.",
+    "problem": "When processing long texts, standard global contrastive loss causes models to gloss over fine-grained local details, focusing only on the macro semantic meaning of the sentence and the image.",
+    "ELI5 problem": "When reading a long paragraph about a picture, normal AI just gets the 'gist' of it. FineLIP forces the AI to pay attention to every single tiny detail mentioned in the text and physically match it to specific parts of the image.",
+    "link": "https://arxiv.org/search/?query=FineLIP+Extending+CLIPs+Reach+via+Fine-Grained+Alignment&searchtype=title"
+  },
+  {
+    "title": "TokenLearner: What Can 8 Learned Tokens Do for Images and Videos?",
+    "author": "Michael S. Ryoo, AJ Piergiovanni, Anurag Arnab, Mostafa Dehghani, Anelia Angelova",
+    "category": "Efficient Transformers",
+    "summary": "We introduce TokenLearner, an adaptive spatial-temporal tokenization module that dynamically selects a handful of important tokens from an image or video. This drastically reduces compute while maintaining or improving accuracy on recognition tasks.",
+    "problem": "Processing high-resolution images or long videos with Vision Transformers results in tens of thousands of tokens, causing the self-attention computational complexity to explode quadratically.",
+    "ELI5 problem": "Instead of looking at a video frame-by-frame and overwhelming the computer, TokenLearner automatically finds the 8 most important 'concepts' or moving parts in the video and only thinks about those, making it lightning fast.",
+    "link": "https://arxiv.org/abs/2106.11297"
+  },
+  {
+    "title": "FAIRERCLIP: Debiasing CLIP’s Zero-Shot Predictions Using Functions in RKHSs",
+    "author": "Various Authors",
+    "category": "Fairness & Bias",
+    "summary": "We utilize functions in Reproducing Kernel Hilbert Spaces (RKHS) to construct a debiasing framework for CLIP. This post-hoc method orthogonalizes the biased directions in the embedding space without requiring extensive retraining.",
+    "problem": "CLIP embeds societal biases present in uncurated internet data, causing its zero-shot predictions to exhibit severe racial, gender, or cultural biases when classifying images of people or sensitive topics.",
+    "ELI5 problem": "Because CLIP read the entire internet, it learned some bad human stereotypes. This paper applies a fancy mathematical filter to the AI's thoughts to scrub out those biases, ensuring it judges images fairly and equitably.",
+    "link": "https://arxiv.org/search/?query=FAIRERCLIP+Debiasing+CLIPs+Zero-Shot+Predictions&searchtype=title"
+  },
+  {
+    "title": "FALCON: False-Negative Aware Learning of Contrastive Negatives in Vision-Language Pretraining",
+    "author": "Various Authors",
+    "category": "Vision-Language Pre-training",
+    "summary": "We propose FALCON, a novel contrastive learning framework that dynamically identifies and downweights false negatives within a batch. This prevents the model from pushing apart semantically identical image-text pairs during pre-training.",
+    "problem": "In contrastive learning, random samples in a large batch are treated as 'negatives,' but many of them actually share similar semantics with the target (false negatives), which unfairly penalizes the model during training.",
+    "ELI5 problem": "In training, the AI is taught to match a photo with its caption and push away all other captions. But sometimes a 'wrong' caption perfectly describes the photo too! FALCON helps the AI realize when it shouldn't push a good caption away.",
+    "link": "https://arxiv.org/search/?query=FALCON+False-Negative+Aware+Learning+of+Contrastive+Negatives&searchtype=title"
+  },
+  {
+    "title": "Detecting Backdoor Samples in Contrastive Language Image Pretraining",
+    "author": "Various Authors",
+    "category": "AI Security / Backdoors",
+    "summary": "We present a detection algorithm to identify backdoor triggers in large-scale datasets used for Contrastive Language-Image Pretraining. By analyzing the embedding space anomalies, we can filter out poisoned pairs before training.",
+    "problem": "CLIP is trained on massive, uncurated web data, making it highly vulnerable to backdoor attacks where adversaries insert poisoned pairs to secretly hijack downstream zero-shot classification behavior.",
+    "ELI5 problem": "Bad actors can slip 'poisoned' images into the massive datasets used to train AI, creating secret passwords that trick the AI into making mistakes. This paper builds a scanner to detect and remove those hidden traps before the AI learns them.",
+    "link": "https://arxiv.org/search/?query=Detecting+Backdoor+Samples+in+Contrastive+Language+Image+Pretraining&searchtype=title"
+  },
+  {
+    "title": "Conditional Prompt Learning for Vision-Language Models",
+    "author": "Kaiyang Zhou, Jingkang Yang, Chen Change Loy, Ziwei Liu",
+    "category": "Prompt Tuning",
+    "summary": "We propose Conditional Context Optimization (CoCoOp), which extends prompt learning by generating prompts conditionally based on the input image instance. This solves the domain generalization problem found in static prompt learning.",
+    "problem": "Standard prompt tuning methods for CLIP learn static text prompts that overfit to the training classes and fail entirely when generalizing to unseen base classes in a zero-shot setting.",
+    "ELI5 problem": "Previous methods gave the AI a fixed cheat sheet that worked great until the test changed. This paper makes the cheat sheet 'dynamic'—it changes based on the specific picture the AI is currently looking at, letting it adapt to totally new objects.",
+    "link": "https://arxiv.org/abs/2203.05557"
+  },
+  {
+    "title": "Learning to Prompt for Vision-Language Models",
+    "author": "Kaiyang Zhou, Jingkang Yang, Chen Change Loy, Ziwei Liu",
+    "category": "Prompt Tuning",
+    "summary": "We introduce Context Optimization (CoOp), a simple approach specifically designed for adapting CLIP-like vision-language models for downstream image recognition. CoOp models a prompt's context words with learnable vectors while keeping the entire pre-trained model frozen.",
+    "problem": "Manually engineering text prompts for zero-shot CLIP was highly sensitive and suboptimal. Conversely, fully fine-tuning the model for downstream tasks ruined its zero-shot capability and required excessive compute.",
+    "ELI5 problem": "Finding the magic words to make CLIP work perfectly used to require endless human guessing. Instead of retraining the whole AI, this paper simply teaches the AI to invent its own secret magic words (prompts) that get the highest accuracy.",
+    "link": "https://arxiv.org/abs/2109.01134"
+  },
+  {
+    "title": "Meta CLIP 2: A Worldwide Scaling Recipe",
+    "author": "Hu Xu, Saining Xie, Xinlei Chen, et al.",
+    "category": "Vision-Language Models / Scaling",
+    "summary": "We introduce MetaCLIP 2, an open-source framework and scaling recipe for Vision-Language pre-training. We democratize the scaling process by providing a transparent, highly optimized data curation strategy and training pipeline that matches proprietary state-of-the-art models.",
+    "problem": "Training massive CLIP models required opaque, proprietary data curation and optimization pipelines, making it impossible for the open-source community to replicate or understand state-of-the-art scaling behaviors.",
+    "ELI5 problem": "Building a massive AI like OpenAI's CLIP used to involve secret recipes and hidden data. MetaCLIP 2 provides an open, completely transparent cookbook and ingredients list so anyone in the world can build an incredibly smart AI.",
+    "link": "https://arxiv.org/search/?query=Meta+CLIP+2+A+Worldwide+Scaling+Recipe&searchtype=title"
   }
 ]
