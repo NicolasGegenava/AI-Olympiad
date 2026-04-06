@@ -475,5 +475,23 @@
     "problem": "Training massive CLIP models required opaque, proprietary data curation and optimization pipelines, making it impossible for the open-source community to replicate or understand state-of-the-art scaling behaviors.",
     "ELI5 problem": "Building a massive AI like OpenAI's CLIP used to involve secret recipes and hidden data. MetaCLIP 2 provides an open, completely transparent cookbook and ingredients list so anyone in the world can build an incredibly smart AI.",
     "link": "https://arxiv.org/search/?query=Meta+CLIP+2+A+Worldwide+Scaling+Recipe&searchtype=title"
+  },
+  {
+    "title": "Scaling Laws for Neural Language Models",
+    "author": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+    "category": "Large Language Models / Scaling",
+    "summary": "We empirically study scaling laws for language model performance on the cross-entropy loss. We find that the loss scales as a smooth power-law with model size, dataset size, and the amount of compute used for training, with trends spanning more than seven orders of magnitude.",
+    "problem": "Designing and training language models was largely based on intuition and trial-and-error. There was no predictable mathematical framework to determine how scaling up compute, data, or model parameters would affect the model's final performance.",
+    "ELI5 problem": "Before this paper, making AI smarter was mostly a guessing game of trying different setups. This paper discovered that AI actually follows strict mathematical rules: if you predictably increase its brain size, reading material, or computer power, you can calculate exactly how much smarter it will get before you even start training.",
+    "link": "https://arxiv.org/pdf/2001.08361"
+  },
+  {
+    "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "author": "Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer",
+    "category": "Efficient Fine-Tuning",
+    "summary": "We present QLoRA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance. It achieves this by backpropagating gradients through a frozen, 4-bit quantized pretrained language model into Low Rank Adapters (LoRA).",
+    "problem": "Fine-tuning state-of-the-art large language models required massive, expensive clusters of GPUs because the optimizer states and 16-bit model weights consumed prohibitive amounts of VRAM.",
+    "ELI5 problem": "Customizing a massive AI used to require a giant room of supercomputers just to hold its huge brain in memory. QLoRA uses clever math to heavily compress the AI's memory footprint (down to 4-bit numbers), allowing you to train a world-class AI on a single high-end graphics card.",
+    "link": "https://arxiv.org/pdf/2305.14314"
   }
 ]
