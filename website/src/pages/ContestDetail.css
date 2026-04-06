@@ -1,0 +1,151 @@
+/* ════════════════════════════════════════════════════
+   Contest Detail page (placeholder / coming-soon)
+   ════════════════════════════════════════════════════ */
+
+/* ── Back button ─────────────────────────────────── */
+
+.cd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.cd-back-btn:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+  transform: translateX(-2px);
+}
+
+/* ── Hero ────────────────────────────────────────── */
+
+.cd-hero {
+  width: 100%;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2.5rem;
+  background: #0d1117;
+}
+
+.cd-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.cd-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 7, 18, 0.92) 0%,
+    rgba(5, 7, 18, 0.3) 55%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.25rem 2.75rem;
+  gap: 0.55rem;
+  pointer-events: none;
+}
+
+.cd-hero__category {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(165, 180, 252, 0.3);
+  border-radius: 5px;
+  padding: 0.18rem 0.6rem;
+}
+
+.cd-hero__title {
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.cd-hero__year {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+
+/* ── Coming soon ─────────────────────────────────── */
+
+.cd-coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem 6rem;
+  gap: 1rem;
+}
+
+.cd-coming-soon__icon {
+  font-size: 3.5rem;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.cd-coming-soon__title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+}
+
+.cd-coming-soon__text {
+  font-size: 0.97rem;
+  color: #64748b;
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* ── 404 state ───────────────────────────────────── */
+
+.cd-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  min-height: 60vh;
+}
+
+.cd-not-found__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.cd-not-found__sub {
+  color: #64748b;
+  font-size: 0.95rem;
+}

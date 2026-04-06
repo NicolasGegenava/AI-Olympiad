@@ -114,3 +114,79 @@ button {
   border-color: #94a3b8;
   box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.15);
 }
+
+/* ── Result Badge Component ─────────────────────────── */
+
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  border: 1px solid #eef2f6;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.res-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+}
+
+.res-badge__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.res-badge__count {
+  font-size: 0.85rem;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.res-badge__count strong {
+  color: #1e293b;
+  font-weight: 800;
+}
+
+.res-badge__sep {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+/* ── Reset/Clear Text Button ────────────────────────── */
+
+.pfb-clear-text,
+.cfb-clear-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: #6366f1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.pfb-clear-text:hover,
+.cfb-clear-text:hover {
+  color: #4338ca;
+  background: #f5f3ff;
+}
+
+.pfb-clear-text svg,
+.cfb-clear-text svg {
+  color: #818cf8;
+}
