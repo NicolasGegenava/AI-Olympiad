@@ -142,6 +142,22 @@ const contests = [
     description: "National Polish AI Olympiad Held with 3 Stages",
     year: "2026",
   },
+  {
+    slug: "chinese-oai-2025",
+    name: "Chinese AI Olympiad 2025",
+    image: "./assets/china.png",
+    category: "China",
+    description: "National Chinese AI Olympiad in 2025",
+    year: "2025",
+  },
+  {
+    slug: "singapore-oai-2025",
+    name: "Singapore AI Olympiad 2025",
+    image: "./assets/singapore.png",
+    category: "Singapore",
+    description: "National Singaporean AI Olympiad in 2025",
+    year: "2025",
+  },
 ];
 
 export default contests;
