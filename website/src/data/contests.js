@@ -118,6 +118,30 @@ const contests = [
     description: "One of Five Contests Held in Georgia for CEOAI 2026 Team Selection",
     year: "2026",
   },
+  {
+    slug: "polish-ai-2024",
+    name: "Polish AI Olympiad 2024",
+    image: "./assets/polish.png",
+    category: "Poland",
+    description: "National Polish AI Olympiad Held with 3 Stages",
+    year: "2024",
+  },
+  {
+    slug: "polish-ai-2025",
+    name: "Polish AI Olympiad 2025",
+    image: "./assets/polish.png",
+    category: "Poland",
+    description: "National Polish AI Olympiad Held with 3 Stages",
+    year: "2025",
+  },
+  {
+    slug: "polish-ai-2026",
+    name: "Polish AI Olympiad 2026",
+    image: "./assets/polish.png",
+    category: "Poland",
+    description: "National Polish AI Olympiad Held with 3 Stages",
+    year: "2026",
+  },
 ];
 
 export default contests;
