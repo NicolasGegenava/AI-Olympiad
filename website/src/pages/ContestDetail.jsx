@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import contests from '../data/contests';
 import './ContestDetail.css';
 
@@ -70,18 +70,45 @@ const ContestDetail = () => {
         </div>
       </div>
 
-      {/* Coming soon */}
-      <div className="cd-coming-soon">
-        <div className="cd-coming-soon__icon">🚀</div>
-        <h2 className="cd-coming-soon__title">
-          Solutions Coming Soon
-        </h2>
-        <p className="cd-coming-soon__text">
-          We're working on a comprehensive walkthrough of every problem from{" "}
-          <strong>{contest.name}</strong>.
-          Check back soon!
-        </p>
-      </div>
+      {/* Tasks Grid or Coming soon */}
+      {contest.tasks && contest.tasks.length > 0 ? (
+        <div className="cd-tasks">
+          <h2 className="cd-tasks__heading">Tasks & Problem Statements</h2>
+          <div className="cd-tasks__grid">
+            {contest.tasks.map((task) => (
+              <Link 
+                to={`/contests/${contest.slug}/task/${task.id}`} 
+                key={task.id} 
+                className="cd-task-card"
+              >
+                <span className="cd-task__category">{task.category}</span>
+                <h3 className="cd-task__name">{task.name}</h3>
+                
+                <div className="cd-task__footer">
+                  <span className="cd-task__link-text">
+                    View Problem Statement
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="cd-coming-soon">
+          <div className="cd-coming-soon__icon">🚀</div>
+          <h2 className="cd-coming-soon__title">
+            Solutions Coming Soon
+          </h2>
+          <p className="cd-coming-soon__text">
+            We're working on a comprehensive walkthrough of every problem from{" "}
+            <strong>{contest.name}</strong>.
+            Check back soon!
+          </p>
+        </div>
+      )}
 
     </div>
   );

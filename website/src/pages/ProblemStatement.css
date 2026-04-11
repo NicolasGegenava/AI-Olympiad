@@ -1,0 +1,254 @@
+/* ════════════════════════════════════════════════════
+   Problem Statement Layout & Styling
+   ════════════════════════════════════════════════════ */
+
+.ps-container {
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+}
+
+.ps-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1.5rem;
+}
+
+/* ── Header ──────────────────────────────────────── */
+
+.ps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 3rem;
+}
+
+.ps-header__main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 70%;
+}
+
+.ps-category-pill {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #c026d3;
+  background: #fae8ff;
+  border: 1px solid #f5d0fe;
+  border-radius: 999px;
+  padding: 0.25rem 0.85rem;
+}
+
+.ps-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ps-github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0f172a;
+  color: white;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.ps-github-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.15);
+}
+
+.ps-loading {
+  color: #64748b;
+  font-size: 1rem;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+/* ── Premium Markdown Styling (.markdown-pro) ────── */
+
+.markdown-pro {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #334155;
+  line-height: 1.8;
+  font-size: 1.125rem;
+  max-width: 800px;
+}
+
+.markdown-pro > *:first-child {
+  margin-top: 0;
+}
+
+/* Headings */
+.markdown-pro h1,
+.markdown-pro h2,
+.markdown-pro h3,
+.markdown-pro h4 {
+  color: #0f172a;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  letter-spacing: -0.02em;
+}
+
+.markdown-pro h1 { font-size: 2.25rem; }
+.markdown-pro h2 {
+  font-size: 1.875rem; 
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.markdown-pro h3 { font-size: 1.5rem; }
+.markdown-pro h4 { font-size: 1.25rem; }
+
+/* Paragraphs & Text Elements */
+.markdown-pro p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.markdown-pro strong {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.markdown-pro a {
+  color: #4f46e5;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.markdown-pro a:hover {
+  color: #3730a3;
+  text-decoration-color: #3730a3;
+}
+
+/* Blockquotes */
+.markdown-pro blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #8b5cf6;
+  background: #f5f3ff;
+  border-radius: 0 8px 8px 0;
+  color: #4c1d95;
+  font-style: italic;
+}
+
+.markdown-pro blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.markdown-pro ul,
+.markdown-pro ol {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.markdown-pro li {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-pro li::marker {
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Inline Code */
+.markdown-pro code:not([class*='language-']) {
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.85em;
+  background-color: #f1f5f9;
+  color: #dc2626;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+/* Code Blocks */
+.markdown-pro pre {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.markdown-pro pre code {
+  color: inherit;
+  background: none;
+  font-family: 'Fira Code', 'Roboto Mono', monospace;
+  font-size: 0.9em;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Tables */
+.markdown-pro table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95em;
+}
+
+.markdown-pro th,
+.markdown-pro td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.markdown-pro th {
+  background-color: #f8fafc;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.markdown-pro tr:last-child td {
+  border-bottom: none;
+}
+
+/* Images */
+.markdown-pro img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  display: block;
+}
+
+/* KaTeX Overrides (if necessary) */
+.markdown-pro .katex-display {
+  padding: 1rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}

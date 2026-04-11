@@ -6,6 +6,26 @@ const contests = [
     category: "IOAI",
     description: "International AI Olympiad 2024 Held from 9-15 August in Burgas, Bulgaria.",
     year: "2024",
+    tasks: [
+      {
+        id: "ioai-2024-task-1",
+        name: "Machine Learning Fundamentals",
+        category: "ML",
+        githubLink: "https://github.com/ioai-official"
+      },
+      {
+        id: "ioai-2024-task-2",
+        name: "Natural Language Processing Challenge",
+        category: "NLP",
+        githubLink: "https://github.com/ioai-official"
+      },
+      {
+        id: "ioai-2024-task-3",
+        name: "Computer Vision Recognition",
+        category: "CV",
+        githubLink: "https://github.com/ioai-official"
+      }
+    ]
   },
   {
     slug: "ioai-2025",

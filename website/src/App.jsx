@@ -6,6 +6,7 @@ import Contests from './pages/Contests';
 import ContestDetail from './pages/ContestDetail';
 import ResearchPapers from './pages/ResearchPapers';
 import Blogs from './pages/Blogs';
+import ProblemStatement from './pages/ProblemStatement';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contests" element={<Contests />} />
             <Route path="/contests/:slug" element={<ContestDetail />} />
+            <Route path="/contests/:slug/task/:taskId" element={<ProblemStatement />} />
             <Route path="/papers" element={<ResearchPapers />} />
             <Route path="/blogs" element={<Blogs />} />
           </Routes>
