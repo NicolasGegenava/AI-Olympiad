@@ -520,5 +520,59 @@
     "problem": "Deep learning models easily memorize specific, clean training data and suffer massive drops in accuracy when deployed in the real world where images might be corrupted by rain, blur, compression artifacts, or digital noise.",
     "ELI5 problem": "If an AI only learns from perfect, crystal-clear photos of a car, it completely panics if it sees a car through rain or a dirty camera lens. AugMix takes a single photo, creates a few heavily distorted versions of it (like one fuzzy, one discolored), and blends them all together, forcing the AI to learn the true, underlying shape of the object instead of relying on perfect lighting.",
     "link": "https://arxiv.org/pdf/1912.02781"
+  },
+  {
+    "title": "Multimodal Neurons in Artificial Neural Networks",
+    "author": "Gabriel Goh, Nick Cammarata, Chelsea Voss, Shan Carter, Michael Petrov, Ludwig Schubert, Alec Radford, Chris Olah",
+    "category": "Vision-Language Models / Adversarial Attacks",
+    "summary": "We discover that CLIP contains \"multimodal neurons\" that respond to both the visual features of an object and its written text. This abstract, high-level representation makes the model highly vulnerable to \"typographic attacks,\" where simply writing a word on an object forces the model to misclassify the image according to the text.",
+    "problem": "While vision-language models like CLIP learn powerful abstract concepts, it was largely unknown how these concepts were represented internally and whether their heavy reliance on reading text within images introduced novel security vulnerabilities.",
+    "ELI5 problem": "Because CLIP learned by reading the internet, it trusts text way too much. If you put a literal sticky note that says 'iPod' on a photo of a Granny Smith apple, the AI's 'text-reading' brain completely overpowers its 'vision' brain, and it stubbornly insists it is looking at an iPod. This is called a typographic attack.",
+    "link": "https://distill.pub/2021/multimodal-neurons/"
+  },
+  {
+    "title": "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets",
+    "author": "Alethea Power, Yuri Burda, Harri Edwards, Igor Babuschkin, Vedant Misra",
+    "category": "Deep Learning Theory / Training Dynamics",
+    "summary": "We document \"grokking,\" a training dynamic where, long after a model has severely overfitted its training data (reaching near-perfect training accuracy but random test accuracy), continued training causes a sudden and dramatic improvement in generalization performance, transitioning from memorization to true comprehension.",
+    "problem": "It is a core tenet of machine learning that once a neural network severely overfits its training data and validation performance flatlines, further training is completely useless and should be stopped early to save compute.",
+    "ELI5 problem": "If an AI just mindlessly memorizes the answers to a math test, we usually stop training and call it a failure. This paper found something crazy: if you force the AI to keep studying that exact same memorized test for weeks, eventually a lightbulb goes off. It stops memorizing and suddenly 'groks' the underlying rules of math.",
+    "link": "https://arxiv.org/pdf/2201.02177"
+  },
+  {
+    "title": "Deep Double Descent: Where Bigger Models and More Data Hurt",
+    "author": "Preetum Nakkiran, Gal Kaplun, Yamini Bansal, Tristan Yang, Boaz Barak, Ilya Sutskever",
+    "category": "Deep Learning Theory / Training Dynamics",
+    "summary": "We show that deep learning models exhibit a \"double descent\" phenomenon where, as model capacity, data size, or training time increases, test performance initially improves, then gets significantly worse, before ultimately improving again. This explains why massive overparameterization succeeds in modern deep learning.",
+    "problem": "Classical statistics dictates a strict 'bias-variance tradeoff'—making a model too complex causes it to overfit and perform terribly on new data. Yet, modern neural networks are massively over-complex but still magically generalize well, breaking traditional statistical rules.",
+    "ELI5 problem": "Old math says if an AI tries too hard to learn every detail, it will overthink and fail the final exam. This paper proves learning actually has a 'danger zone'. As the AI's brain gets bigger, it does fail for a bit—but if you push past that and make its brain *massive*, it suddenly pushes through the confusion and becomes a genius.",
+    "link": "https://arxiv.org/pdf/1912.02292"
+  },
+  {
+    "title": "On the Spectral Bias of Neural Networks",
+    "author": "Nasim Rahaman, Aristide Baratin, Devansh Arpit, Felix Draxler, Min Lin, Fred Hamprecht, Yoshua Bengio, Aaron Courville",
+    "category": "Deep Learning Theory / Training Dynamics",
+    "summary": "We investigate the training dynamics of neural networks through the lens of Fourier analysis. We discover that neural networks exhibit a \"spectral bias,\" meaning they inherently learn low-frequency, simple functions early in training before slowly capturing high-frequency, complex details and noise later on.",
+    "problem": "Neural networks possess enough mathematical capacity to instantly memorize completely random noise. Yet, in practice, they naturally prefer to learn simple, generalizable patterns first without humans explicitly forcing them to do so, leaving the mechanism behind this preference a mystery.",
+    "ELI5 problem": "Why doesn't an AI instantly get distracted by all the random noise, static, and tiny details in a photo? This paper mathematically proves that AIs are lazy in a good way: they naturally paint with a broad brush first (learning the big, simple shapes), and only switch to a fine-tip pen for the complex, noisy details much later in training.",
+    "link": "https://arxiv.org/pdf/1806.08734"
+  },
+  {
+    "title": "Understanding and Defending Against Typographic Attacks on Vision-Language Models",
+    "author": "Various Authors",
+    "category": "AI Security / Vision-Language Models",
+    "summary": "We systematically analyze the vulnerability of Vision-Language Models to typographic attacks. We demonstrate how text embedded within images easily hijacks the global embedding space, and we propose an attention-masking regularization technique to force the model to disentangle actual visual features from OCR-derived text concepts.",
+    "problem": "Vision-Language Models inherently conflate the act of reading text within an image with actually perceiving a physical object, rendering them trivially exploitable by bad actors who can just place misleading text labels on objects to bypass safety filters or classification.",
+    "ELI5 problem": "Since AIs like CLIP treat the word 'dog' and a photo of a 'dog' as the exact same mathematical concept, you can easily trick a self-driving car AI into thinking a stop sign is a speed limit sign just by taping a word to it. This paper explores how to train the AI to double-check that the physical shape matches the written words.",
+    "link": "https://arxiv.org/search/?query=Defending+Against+Typographic+Attacks+on+Vision-Language+Models&searchtype=title"
+  },
+  {
+    "title": "The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks",
+    "author": "Jonathan Frankle, Michael Carbin",
+    "category": "Deep Learning Theory / Training Dynamics",
+    "summary": "We introduce the Lottery Ticket Hypothesis, demonstrating that dense, randomly initialized neural networks contain smaller subnetworks (\"winning tickets\") that—when trained in isolation from their original initial weights—can match the test accuracy of the original network in a similar number of iterations.",
+    "problem": "Pruning can reduce the size of a fully trained neural network by 90% without losing accuracy, but historically, if you tried to just train that small, pruned network from scratch, it completely failed to learn.",
+    "ELI5 problem": "A massive AI model is like buying a million lottery tickets. After the training 'draws the numbers', you realize only 5% of the network actually did the work. This paper proved that if you rewind time and only train those specific lucky 5% of connections from the very start, the tiny AI learns just as well as the giant one.",
+    "link": "https://arxiv.org/pdf/1803.03635"
   }
 ]
