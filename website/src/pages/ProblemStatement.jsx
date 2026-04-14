@@ -19,24 +19,24 @@ const ArrowLeftIcon = () => (
 );
 
 const ProblemStatement = () => {
-  const { slug, taskId } = useParams();
+  const { slug, taskId, docType } = useParams();
   const navigate = useNavigate();
 
   const contest = useMemo(() => contests.find((c) => c.slug === slug), [slug]);
   const task = useMemo(() => contest?.tasks?.find((t) => t.id === taskId), [contest, taskId]);
 
   const MdxContent = useMemo(() => {
-    if (!task) return null;
-    const modulePath = `../content/tasks/${taskId}.mdx`;
+    if (!task || !docType) return null;
+    const modulePath = `../content/tasks/${taskId}-${docType}.mdx`;
     const loadMdx = mdxModules[modulePath];
     if (!loadMdx) return null;
     return React.lazy(loadMdx);
-  }, [task, taskId]);
+  }, [task, taskId, docType]);
 
   if (!contest || !task) {
     return (
       <div className="page-wrapper container ps-not-found">
-        <h1>Task not found</h1>
+        <h1>Document not found</h1>
         <button className="cd-back-btn" onClick={() => navigate(`/contests/${slug}`)}>
           <ArrowLeftIcon /> Back to Contest
         </button>
@@ -52,7 +52,10 @@ const ProblemStatement = () => {
 
       <div className="ps-header">
         <div className="ps-header__main">
-          <span className="ps-category-pill">{task.category}</span>
+          <div className="ps-header__meta">
+            <span className="ps-category-pill">{task.category}</span>
+            <span className="ps-doctype-badge">{docType === 'solution' ? 'Solution Writeup' : 'Problem Statement'}</span>
+          </div>
           <h1 className="ps-title">{task.name}</h1>
         </div>
         {task.githubLink && (
@@ -69,8 +72,8 @@ const ProblemStatement = () => {
       </div>
 
       <div className="ps-content markdown-pro">
-        <Suspense fallback={<div className="ps-loading">Loading problem statement...</div>}>
-          {MdxContent ? <MdxContent /> : <p>Problem statement content could not be found.</p>}
+        <Suspense fallback={<div className="ps-loading">Loading content...</div>}>
+          {MdxContent ? <MdxContent /> : <p>The {docType === 'solution' ? 'solution writeup' : 'problem statement'} for this task could not be found.</p>}
         </Suspense>
       </div>
     </div>

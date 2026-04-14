@@ -42,9 +42,9 @@ const Contests = () => {
           }}
         />
         <div className="contests-hero__overlay">
-          <h1 className="contests-hero__title">Olympiad Solutions</h1>
+          <h1 className="contests-hero__title">Olympiad Problems</h1>
           <p className="contests-hero__subtitle">
-            Every solution to international and national AI olympiad problems in one place
+            Every problem with solution to international and national AI olympiad problems in one place
           </p>
         </div>
       </div>

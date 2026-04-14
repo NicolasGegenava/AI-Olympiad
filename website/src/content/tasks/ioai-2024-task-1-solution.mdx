@@ -1,0 +1,40 @@
+# Solution to Machine Learning Fundamentals
+
+Here is the step-by-step solution for the ML fundamentals task in IOAI 2024.
+
+## Solving Linear Regression
+
+To optimize the parameters using gradient descent, we use the following update rules:
+
+$$
+\beta_j := \beta_j - \alpha \frac{\partial J}{\partial \beta_j}
+$$
+
+Where $J$ is the Mean Squared Error cost function.
+
+```python
+def gradient_descent(X, y, learning_rate=0.01, epochs=1000):
+    m = len(y)
+    beta = np.zeros(X.shape[1])
+    
+    for _ in range(epochs):
+        predictions = X.dot(beta)
+        errors = predictions - y
+        gradient = (1/m) * X.T.dot(errors)
+        beta -= learning_rate * gradient
+        
+    return beta
+```
+
+## Entropy Solution
+
+For the entropy function:
+```python
+def compute_entropy(y):
+    counts = np.bincount(y)
+    probabilities = counts / len(y)
+    entropy = -np.sum([p * np.log2(p) for p in probabilities if p > 0])
+    return entropy
+```
+
+Great job if you implemented it this way!

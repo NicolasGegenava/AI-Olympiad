@@ -8,23 +8,27 @@ import ResearchPapers from './pages/ResearchPapers';
 import Blogs from './pages/Blogs';
 import ProblemStatement from './pages/ProblemStatement';
 
+import ReactLenis from '@studio-freight/react-lenis';
+
 function App() {
   return (
-    <Router>
-      <div className="app-container">
-        <Navigation />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contests" element={<Contests />} />
-            <Route path="/contests/:slug" element={<ContestDetail />} />
-            <Route path="/contests/:slug/task/:taskId" element={<ProblemStatement />} />
-            <Route path="/papers" element={<ResearchPapers />} />
-            <Route path="/blogs" element={<Blogs />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <ReactLenis root>
+      <Router>
+        <div className="app-container">
+          <Navigation />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contests" element={<Contests />} />
+              <Route path="/contests/:slug" element={<ContestDetail />} />
+              <Route path="/contests/:slug/task/:taskId/:docType" element={<ProblemStatement />} />
+              <Route path="/papers" element={<ResearchPapers />} />
+              <Route path="/blogs" element={<Blogs />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </ReactLenis>
   );
 }
 

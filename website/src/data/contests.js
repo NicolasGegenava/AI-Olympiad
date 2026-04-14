@@ -9,20 +9,20 @@ const contests = [
     tasks: [
       {
         id: "ioai-2024-task-1",
-        name: "Machine Learning Fundamentals",
+        name: "Lost in Hyperspace",
         category: "ML",
         githubLink: "https://github.com/ioai-official"
       },
       {
         id: "ioai-2024-task-2",
-        name: "Natural Language Processing Challenge",
-        category: "NLP",
+        name: "Madarian Cow",
+        category: "CV",
         githubLink: "https://github.com/ioai-official"
       },
       {
         id: "ioai-2024-task-3",
-        name: "Computer Vision Recognition",
-        category: "CV",
+        name: "Help BOBAI",
+        category: "NLP",
         githubLink: "https://github.com/ioai-official"
       }
     ]

@@ -23,7 +23,7 @@ const Navigation = () => {
             Home
           </NavLink>
           <NavLink to="/contests" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Contest Solutions
+            Contests
           </NavLink>
           <NavLink to="/papers" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
             Research Papers
