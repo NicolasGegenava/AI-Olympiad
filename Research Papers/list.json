@@ -574,5 +574,41 @@
     "problem": "Pruning can reduce the size of a fully trained neural network by 90% without losing accuracy, but historically, if you tried to just train that small, pruned network from scratch, it completely failed to learn.",
     "ELI5 problem": "A massive AI model is like buying a million lottery tickets. After the training 'draws the numbers', you realize only 5% of the network actually did the work. This paper proved that if you rewind time and only train those specific lucky 5% of connections from the very start, the tiny AI learns just as well as the giant one.",
     "link": "https://arxiv.org/pdf/1803.03635"
+  },
+  {
+    "title": "What Does BERT Look At? An Analysis of BERT's Attention",
+    "author": "Kevin Clark, Urvashi Khandelwal, Omer Levy, Christopher D. Manning",
+    "category": "Interpretability / Large Language Models",
+    "summary": "We analyze the attention mechanisms of BERT to understand what it learns. We find that specific attention heads specialize in distinct linguistic phenomena, such as attending to the next word, previous word, or specific syntactic dependencies (like direct objects), and that certain heads can even be used directly for rule-based parsing.",
+    "problem": "BERT achieved state-of-the-art results in NLP, but as a massive deep neural network, it acted as a black box. It was entirely unclear how BERT mathematically processed language internally and whether it was actually learning recognizable human grammar or syntax.",
+    "ELI5 problem": "BERT is really good at reading, but we didn't know *how* it reads. This paper cracks open BERT's brain and looks at its 'attention' to see where its eyes go. It turns out, different parts of its brain naturally learn standard English grammar rules, like connecting nouns to verbs.",
+    "link": "https://arxiv.org/pdf/1906.04341"
+  },
+  {
+    "title": "Implicit Neural Representations with Periodic Activation Functions",
+    "author": "Vincent Sitzmann, Julien Martel, Alexander Bergman, David Lindell, Gordon Wetzstein",
+    "category": "Neural Representations / Computer Vision",
+    "summary": "We introduce SIREN (Sinusoidal Representation Networks), an architecture that uses periodic sine wave activation functions for implicit neural representations. This enables the network to accurately represent complex natural signals, their spatial and temporal derivatives, and fine details, vastly outperforming standard ReLU networks.",
+    "problem": "Standard neural networks using ReLU activation functions fail to capture high-frequency details and lack smooth derivatives, making them heavily biased toward smoothness and poorly suited to continuously parameterizing complex signals like images, audio, or 3D shapes.",
+    "ELI5 problem": "Normal AIs (using standard math functions) are really bad at drawing fine details—they tend to blur everything out and can't handle sharp changes or smooth curves properly. By swapping the AI's core math to use sine waves (like sound waves), the AI can suddenly memorize and recreate perfectly sharp, highly detailed images and 3D shapes.",
+    "link": "https://arxiv.org/pdf/2006.09661"
+  },
+  {
+    "title": "DEYO: DETR with YOLO for End-to-End Object Detection",
+    "author": "Haoxuan Ouyang, et al.",
+    "category": "Object Detection",
+    "summary": "We propose DEYO, an object detection model that combines the fast, purely convolutional architecture of YOLO with the end-to-end transformer-based capabilities of DETR. This hybrid approach significantly speeds up DETR's notoriously slow convergence while maintaining high accuracy and eliminating the need for non-maximum suppression.",
+    "problem": "YOLO models are incredibly fast but require messy, hand-engineered components like non-maximum suppression (NMS) to delete duplicate boxes. DETR successfully removes the need for NMS, but suffers from extremely slow training convergence and high computational costs.",
+    "ELI5 problem": "YOLO is a super-fast object finder, but it's messy and needs extra code to delete duplicate guesses. DETR is a clean object finder that never guesses twice, but it takes forever to learn. DEYO mashes them together to get a clean, perfect object finder that learns blazingly fast.",
+    "link": "https://arxiv.org/pdf/2402.16370"
+  },
+  {
+    "title": "SimMIM: A Simple Framework for Masked Image Modeling",
+    "author": "Zhenda Xie, Zheng Zhang, Yue Cao, Yutong Lin, Jianmin Bao, Zhuliang Yao, Qi Dai, Han Hu",
+    "category": "Self-Supervised Learning",
+    "summary": "We present SimMIM, a remarkably simple framework for masked image modeling. We show that simply masking random patches of an input image with a large patch size, and using a lightweight linear layer to predict the raw pixel values directly, achieves highly competitive representation learning without needing complex architectural designs.",
+    "problem": "Self-supervised learning in computer vision was dominated by overly complex frameworks that relied on momentum encoders, complicated target tokenizers, or massive, heavy decoder architectures to teach the model how to reconstruct missing patches.",
+    "ELI5 problem": "People thought teaching an AI to reconstruct missing parts of a photo required a massive, overly complicated 'teacher' network and complex math. This paper proved you can just throw away parts of the image and ask a simple, tiny AI layer to guess the exact missing colors, and it learns just as well.",
+    "link": "https://arxiv.org/pdf/2111.09886"
   }
 ]
