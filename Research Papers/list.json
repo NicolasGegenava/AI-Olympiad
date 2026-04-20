@@ -610,5 +610,32 @@
     "problem": "Self-supervised learning in computer vision was dominated by overly complex frameworks that relied on momentum encoders, complicated target tokenizers, or massive, heavy decoder architectures to teach the model how to reconstruct missing patches.",
     "ELI5 problem": "People thought teaching an AI to reconstruct missing parts of a photo required a massive, overly complicated 'teacher' network and complex math. This paper proved you can just throw away parts of the image and ask a simple, tiny AI layer to guess the exact missing colors, and it learns just as well.",
     "link": "https://arxiv.org/pdf/2111.09886"
+  },
+  {
+    "title": "Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps",
+    "author": "Karen Simonyan, Andrea Vedaldi, Andrew Zisserman",
+    "category": "Computer Vision / Interpretability",
+    "summary": "We address the visualisation of image classification models learned using deep Convolutional Networks. We consider two techniques based on computing the gradient of the class score with respect to the input image: one generates an image that maximises the class score, and the other computes a class saliency map specific to a given image and class [3.1].",
+    "problem": "Deep ConvNets became the architecture of choice for image recognition, but the specific aspects of visual appearance captured inside these deep models remained opaque, making it difficult to understand exactly what features the network was using to make its decisions.",
+    "ELI5 problem": "A deep AI can tell you a picture is a dog, but it couldn't tell you *what* made it a dog. This paper figured out a way to run the AI's math backwards to highlight the exact pixels the AI was looking at (like pointing at the dog's ears and snout), giving us a way to 'see' what the AI sees.",
+    "link": "https://arxiv.org/pdf/1312.6034"
+  },
+  {
+    "title": "Elephant Neural Networks: Born to Be a Continual Learner",
+    "author": "Qingfeng Lan, A. Rupam Mahmood",
+    "category": "Continual Learning",
+    "summary": "We investigate the role of activation functions in catastrophic forgetting. We reveal that gradient sparsity, alongside sparse representations, plays an important role in reducing forgetting. We propose 'elephant activation functions' that generate both sparse representations and sparse gradients, significantly improving resilience to catastrophic forgetting.",
+    "problem": "Neural networks suffer from catastrophic forgetting when learning sequentially on non-iid data. Most solutions focus on the algorithmic side, while the underlying architectural properties—such as the role of activation functions—that cause this rapid loss of prior knowledge are not fully understood.",
+    "ELI5 problem": "When an AI learns a new task, it easily overwrites its old memories. This paper redesigns the AI's core math functions (naming them 'elephant' functions) so that only a tiny, specific part of the network fires when learning something new, safely protecting the old memories from being erased.",
+    "link": "https://arxiv.org/pdf/2310.01365"
+  },
+  {
+    "title": "DER: Dynamically Expandable Representation for Class Incremental Learning",
+    "author": "Shipeng Yan, Jiangwei Xie, Xuming He",
+    "category": "Continual Learning",
+    "summary": "We propose a two-stage learning approach that utilizes a dynamically expandable representation. At each incremental step, we freeze the previously learned representation and augment it with additional feature dimensions from a new learnable feature extractor, which is dynamically pruned using a channel-level mask to maintain compactness.",
+    "problem": "In class incremental learning under limited memory, models suffer from a severe stability-plasticity dilemma: learning new visual concepts often completely overwrites and destroys existing representations (catastrophic forgetting), while keeping weights too rigid prevents the learning of new concepts.",
+    "ELI5 problem": "If you teach an AI new things, it usually deletes old knowledge to make room. If you just endlessly add new memory, it gets incredibly slow. This paper solves this by 'freezing' the old parts of the AI's brain so they stay safe, and carefully growing a tiny, efficiently pruned new piece of brain specifically for the new information.",
+    "link": "https://arxiv.org/pdf/2103.16788"
   }
 ]
