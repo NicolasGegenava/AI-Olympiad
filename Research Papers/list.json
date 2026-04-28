@@ -637,5 +637,32 @@
     "problem": "In class incremental learning under limited memory, models suffer from a severe stability-plasticity dilemma: learning new visual concepts often completely overwrites and destroys existing representations (catastrophic forgetting), while keeping weights too rigid prevents the learning of new concepts.",
     "ELI5 problem": "If you teach an AI new things, it usually deletes old knowledge to make room. If you just endlessly add new memory, it gets incredibly slow. This paper solves this by 'freezing' the old parts of the AI's brain so they stay safe, and carefully growing a tiny, efficiently pruned new piece of brain specifically for the new information.",
     "link": "https://arxiv.org/pdf/2103.16788"
+  },
+  {
+    "title": "In-context Learning and Induction Heads",
+    "author": "Catherine Olsson, Nelson Elhage, Neel Nanda, et al.",
+    "category": "Mechanistic Interpretability / Training Dynamics",
+    "summary": "We hypothesize that the majority of in-context learning in large language models is driven by 'induction heads'—a specific type of attention circuit. We demonstrate that these circuits develop during a sudden, macroscopic phase change early in training, perfectly coinciding with a sharp improvement in the model's ability to perform in-context learning.",
+    "problem": "It was a mystery how autoregressive next-token predictors suddenly developed the emergent ability to learn entirely new tasks strictly from the prompt context without updating their weights.",
+    "ELI5 problem": "How does an AI learn a totally new rule just from reading a prompt? This paper discovered a secret 'circuit' inside the AI's brain that specifically looks for repeating patterns (like 'If I saw A followed by B earlier, and I see A again, predict B'). Even crazier, this circuit doesn't grow slowly; it suddenly 'clicks' on all at once during a specific, rapid phase of training.",
+    "link": "https://arxiv.org/pdf/2209.11895"
+  },
+  {
+    "title": "Toy Models of Superposition",
+    "author": "Nelson Elhage, Tristan Hume, Catherine Olsson, et al.",
+    "category": "Mechanistic Interpretability / Deep Learning Theory",
+    "summary": "We investigate how neural networks represent more features than they have dimensions. We show that models utilize 'superposition' by compressing multiple uncorrelated concepts into the same neural space using almost-orthogonal directions, explaining why individual neurons often appear polysemantic (reacting to unrelated concepts).",
+    "problem": "Researchers consistently found that individual neurons in networks fire for completely unrelated things (e.g., a single neuron firing for both 'cats' and 'cars'). This 'polysemanticity' made reverse-engineering and interpreting AI brains seem mathematically impossible.",
+    "ELI5 problem": "Imagine trying to fit 100 different objects into a box that only holds 10. You'd have to smash them together. Neural networks do this mathematically. A single neuron doesn't just mean 'dog'—it means a mix of 50 different things. This paper mathematically proves how the AI safely squishes thousands of concepts into a small brain by making them intersect at weird angles, unlocking why reading an AI's mind is so confusing.",
+    "link": "https://arxiv.org/pdf/2209.10652"
+  },
+  {
+    "title": "The Reversal Curse: LLMs trained on \"A is B\" fail to learn \"B is A\"",
+    "author": "Lukas Berglund, Meg Tong, Max Kaufmann, et al.",
+    "category": "Training Dynamics / LLM Limitations",
+    "summary": "We reveal a fundamental failure of generalization in autoregressive language models. If a model is trained on a dataset containing the fact 'Tom Cruise's mother is Mary Lee Pfeiffer', it completely fails to generalize this to 'Mary Lee Pfeiffer's son is Tom Cruise', achieving near 0% accuracy on the reversed prompt.",
+    "problem": "The standard left-to-right next-token prediction objective in LLM training creates a severe, unidirectional asymmetry in how facts are stored and retrieved, heavily limiting logical deduction and reasoning.",
+    "ELI5 problem": "If you tell a human 'Batman is Bruce Wayne', they automatically know 'Bruce Wayne is Batman'. This paper proved that because AI models are trained to strictly guess the *next* word, they only learn facts in one direction. If they read 'Batman is Bruce Wayne' a million times, they still have zero clue who Bruce Wayne is. Their training dynamics trap them in a one-way street of learning.",
+    "link": "https://arxiv.org/pdf/2309.12288"
   }
 ]
