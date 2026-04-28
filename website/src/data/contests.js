@@ -135,7 +135,7 @@ const contests = [
         id: "polish-ai-2024-ciphers",
         name: "Ciphers",
         category: "NLP",
-        githubLink: "https://github.com/ioai-official"
+        githubLink: "https://github.com/NicolasGegenava/AI-Olympiad/blob/main/Polish%20AI%20Olympiad/2024/Final/Ciphers/solution.ipynb"
       }
     ]
   },
