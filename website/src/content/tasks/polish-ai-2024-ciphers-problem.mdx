@@ -1,0 +1,64 @@
+# Ciphers
+
+## Introduction
+
+For centuries, people have tried to encrypt texts so that outsiders would not be able to easily understand them. In this task, you will have to decipher a text created by a group of preschool children who decided to encrypt part of the contents of their parents' library by covering letters in selected lines with stickers.
+
+## Task
+
+The children started by preparing $n$ bags: one for each unique character in the entire library. The boys drew $3n$ different pictures, and the girls printed stickers with these pictures: each picture was printed in some unknown and possibly different number of copies. However, there are enough stickers that they will not run out during play. Then, into each of the prepared bags, the children put stickers corresponding to exactly three pictures. Altogether, all stickers ended up in one of the bags.
+
+During the game, the children decided to encrypt some lines in the books. For each encountered character, they would take a random sticker from the bag corresponding to that character and place it in its position. As children do, they got bored, so not all lines in the books were processed this way. Unfortunately, the pictures cannot be removed in any way, but perhaps by analyzing the arrangement of letters in the uncovered texts, we will be able to reconstruct the text from the covered lines.
+
+Write a function `decipher_corpus(clear_corpus, ciphered_corpus)` which takes two arguments:
+
+- `clear_corpus`: a list containing unciphered strings — lines that were not touched by the children. For example:
+
+```python
+clear_corpus = ["a tajną . u rzymian niewolnika , który ukradł , ",
+    "środka : tam wszystko jasno oświetlone . * i widzę ",
+    "się do góry , utracił własność * dążącą do centru ",
+    "chciałabym widzieć tego malca tylko na chwilę . słyszałem , ",
+    "mości notę , prosząc o uwolnienie z tej usługi , "]
+```
+
+- `ciphered_corpus`: a list containing encrypted lines — lines covered with stickers. For example:
+
+```python
+ciphered_corpus = ["🥥🖕👼🥥🔀🛠👡🐌💸🐌📩🖕🧇🤿🧰🦆🥨🥥🦨🐌🚕🔻🥅🐘🚒🗣🛠🔻🚄🥥🤳🥺🐌🚄👼👲🐤🧰🤳📩🚄🔒🥥🧵🐈🖕🥺🖕",
+    "🥤🔒🚒🚔🚄🦫🐌🦒🐌👼🦫🦆🖕🐘🦓🤿💣🦓🚷👱🧔🖕💐🥥🚭🚕🚒🐌🙉🥤🐘🥨🗿👼🗣🚒🦨🔶🤳💑🖕📈🐌🔻🖕🖊🔻🚔🐅👽🐌",
+    "🦓🔻👽🐌🧵🚒🤳🚥🐛🐤💁🖕🖈🤳🔖👼🧇🦫💯🕰👂🤳🐘👂🥥🚭🛠🚒🚚🛰🤳🧚🐌🧵👠🦔🕶🦈👡🐌🚓🙉🐌🦈🗿🦨🚷🐤🧍🐌"]
+```
+
+The function should decipher the list of lines `ciphered_corpus`, written using a pictographic cipher, using the other, unciphered lines `clear_corpus`. The function should return a list of deciphered lines.
+
+## Evaluation
+
+For this task, you can receive a score between 0 and 1 point. Your function `decipher_corpus(clear_corpus, ciphered_corpus)` will be tested on 4 test cases: independent ciphers. The evaluation criterion for a given cipher will be the percentage of correctly deciphered characters in the text (the number of correctly deciphered characters divided by the total number of characters in the text). A model achieving classification accuracy below 50% will receive 0 points.
+
+The final score will be the average of the results for all tests and will be calculated according to the formula:
+
+$$\mathrm{score} = \frac{1}{4} \sum_{i=1}^4 2 \cdot \max(\mathrm{accuracy}_i - 0.5, 0)$$
+
+## Constraints
+
+- Running your entire code with the `FINAL_EVALUATION_MODE` flag set to `True` should take no longer than 5 minutes on Google Colab **with** GPU.
+
+- Your solution will be tested without access to the Internet.
+
+## Data
+
+The data available to you in this task includes:
+
+- `clear_lines.txt` — a file containing lines from books that were not touched by the children — unciphered text;
+- `ciphered_lines.txt` — a file containing 30,000 lines from books, encrypted in the manner described above; this is the dataset on which you can evaluate your solution;
+- `ciphered_lines_ground_truth.txt` — a file containing the deciphered versions of the lines from the file.
+
+## Notes and Tips
+
+- All characters have been encrypted, including spaces, except for the newline character (it does not appear in any of the datasets).
+- The three images assigned to each character do not necessarily have equal probability of being used in place of that character, meaning some images may have been used more frequently than the other two.
+- This might be useful:
+  ```python
+  from gensim.models import Word2Vec as Letter2Vec
+  ```

@@ -130,6 +130,14 @@ const contests = [
     category: "Poland",
     description: "National Polish AI Olympiad Held with 3 Stages",
     year: "2024",
+    tasks: [
+      {
+        id: "polish-ai-2024-ciphers",
+        name: "Ciphers",
+        category: "NLP",
+        githubLink: "https://github.com/ioai-official"
+      }
+    ]
   },
   {
     slug: "polish-ai-2025",
