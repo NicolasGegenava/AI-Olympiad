@@ -7,6 +7,7 @@ import ContestDetail from './pages/ContestDetail';
 import ResearchPapers from './pages/ResearchPapers';
 import Blogs from './pages/Blogs';
 import ProblemStatement from './pages/ProblemStatement';
+import Spreadsheet from './pages/Spreadsheet';
 
 import ReactLenis from '@studio-freight/react-lenis';
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/contests/:slug/task/:taskId/:docType" element={<ProblemStatement />} />
               <Route path="/papers" element={<ResearchPapers />} />
               <Route path="/blogs" element={<Blogs />} />
+              <Route path="/spreadsheet" element={<Spreadsheet />} />
             </Routes>
           </main>
         </div>
