@@ -64,8 +64,8 @@ const Spreadsheet = () => {
       <div className="spreadsheet-page">
         <div className="spreadsheet-container error">
           <AlertCircle size={48} color="#ef4444" style={{ marginBottom: '20px' }} />
-          <h2 style={{ marginBottom: '10px' }}>Oops! Something went wrong.</h2>
-          <p style={{ color: '#9ca3af' }}>{error}</p>
+          <h2 style={{ marginBottom: '10px', color: '#0f172a' }}>Oops! Something went wrong.</h2>
+          <p style={{ color: '#64748b' }}>{error}</p>
         </div>
       </div>
     );
